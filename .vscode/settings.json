@@ -1,0 +1,8 @@
+{
+    "files.defaultLanguage": "cpp",
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "chrono": "cpp"
+    },
+    "git.enabled": false,
+}

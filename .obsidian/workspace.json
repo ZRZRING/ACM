@@ -1,0 +1,207 @@
+{
+  "main": {
+    "id": "a8c846a8a5fc9546",
+    "type": "split",
+    "children": [
+      {
+        "id": "e6284d10580e9fde",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0d9f9e5220cbd7e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6fe5d523ff273ce5",
+    "type": "split",
+    "children": [
+      {
+        "id": "1881ce61ee5b9370",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bf9fd0a534758428",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e808d1b998fa4bf8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "814013e8e771f1b2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md"
+              }
+            }
+          },
+          {
+            "id": "c637ac49a8190943",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7e26d1fc32261e84",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "a9dcd8ecead8095b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e1df4dc4cbc63dc0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "43ed851cc8022f79",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 385.5
+  },
+  "right": {
+    "id": "2489426362c0010a",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 438.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": true,
+      "graph:查看关系图谱": true,
+      "canvas:新建白板": true,
+      "daily-notes:打开/创建今天的日记": true,
+      "templates:插入模板": true,
+      "command-palette:打开命令面板": true
+    }
+  },
+  "active": "0d9f9e5220cbd7e4",
+  "lastOpenFiles": [
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+    "Other/tmp.md",
+    "Codeforces/Other Round/Pinely Round 2/E.cpp",
+    "Codeforces/Other Round/Pinely Round 2/D.cpp",
+    "Codeforces/Other Round/Pinely Round 2/C.cpp",
+    "Codeforces/Other Round/Pinely Round 2/B.cpp",
+    "Codeforces/Other Round/Pinely Round 2/A.cpp",
+    "Codeforces/Other Round/Pinely Round 2",
+    "Codeforces/Other Round/CodeTON Round 6/D.cpp",
+    "Codeforces/Other Round/CodeTON Round 6/C.cpp",
+    "Codeforces/Other Round/CodeTON Round 6/B.cpp",
+    "Codeforces/Other Round/CodeTON Round 6/A.cpp",
+    "Other/Picture/b4dbf21e3d779b6212e7bf360afd6d41-1700549564131-5.png",
+    "Other/Picture/1074429cd9de4424a8994499fd546984.png",
+    "Other/Picture/1645a99fd29c49e5a57a8aab1144eab1.png",
+    "Other/Picture/17e29fb7d7884e7fa6056e6f096ba176.png",
+    "Other/Note/CodeForces/Codeforces Beta Round/Codeforces Beta Round 40.md",
+    "Other/Note/CodeForces/Codeforces Beta Round/Codeforces Beta Round 31.md",
+    "Other/Note/CodeForces/CodeTON Round/CodeTON Round 7.md",
+    "Other/Note/CodeForces/CodeTON Round/CodeTON Round 5.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 894.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 878.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 874.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 579.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 914.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 901.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 899.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 897.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 896.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 889.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 887.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 882.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 879.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 857.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 853.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 852.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 846.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 821.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 578.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 532.md",
+    "Other/Picture/3.jpg",
+    "Other/Picture/2.jpg",
+    "Other/Picture/1.jpg",
+    "Other/Note/Others/image.png",
+    "Note/Contests/fc6b92eed28345b488a0058c74da0cb2.png",
+    "Note/Contests/ec23825945784c2da32c08c5f08db78c.png",
+    "未命名.canvas",
+    "未命名 3.canvas",
+    "未命名 2.canvas",
+    "未命名 1.canvas"
+  ]
+}
