@@ -16,7 +16,7 @@ using i64 = long long;
 const i64 mod = 998244353;
 
 struct TREE {
-    int n, flag = 0, root = 1, dfn_cnt = 0;
+    int n, root = 1, dfn_cnt = 0;
 
     std::vector<std::vector<PII>> e;
 
@@ -62,10 +62,6 @@ struct TREE {
     }
 
     int lca(int x, int y) {
-        if (!flag) {
-            dfs(root, root);
-            flag = 1;
-        }
         if (dep[x] < dep[y]) std::swap(x, y);
         for (int i = dep[x] - dep[y], j = 0; i > 0; i >>= 1, j++) {
             // std::cout << j << endl;
@@ -112,6 +108,7 @@ int solve() {
         std::cin >> u >> v >> t;
         t1.add(u, v, t);
     }
+    t1.dfs(1, 1);
     int m;
     std::cin >> m;
     std::vector<int> vis(n + 1);

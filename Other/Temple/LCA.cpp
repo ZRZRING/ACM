@@ -16,13 +16,13 @@ using i64 = long long;
 const i64 mod = 998244353;
 
 struct TREE {
-	int n, flag = 0, root = 1;
+	int n, flag = 0;
 
 	std::vector<std::vector<int>> e, fa;
 	
 	std::vector<int> dep;
 	
-	TREE(int n, int root = 1) : n(n), root(root) {
+	TREE(int n) : n(n) {
 		e.resize(n);
 		fa.resize(n);
 		dep.resize(n);
@@ -50,10 +50,6 @@ struct TREE {
 	}
 
 	int lca(int x, int y) {
-		if (!flag) {
-			dfs(root, root);
-			flag = 1;
-		}
 		if (dep[x] < dep[y]) std::swap(x, y);
 		for (int i = dep[x] - dep[y], j = 0; i; i >>= 1, j++) {
 			// std::cout << j << endl;
@@ -74,16 +70,17 @@ struct TREE {
 int solve() {
 	int n, m, s;
 	std::cin >> n >> m >> s;
-	TREE tree(n + 1);
+	TREE t1(n + 1);
 	for (int i = 1; i < n; i++) {
 		int u, v;
 		std::cin >> u >> v;
-		tree.add(u, v);
+		t1.add(u, v);
 	}
+	t1.dfs(s, s);
 	for (int i = 1; i <= m; i++) {
 		int x, y;
 		std::cin >> x >> y;
-		std::cout << tree.lca(x, y) << endl;
+		std::cout << t1.lca(x, y) << endl;
 	}
 	return 0;
 }

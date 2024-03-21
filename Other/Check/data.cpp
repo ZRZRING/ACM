@@ -16,7 +16,7 @@ const int mod = 1e9 + 7;
 
 int main() {
 	srand(time(0));
-	int n = roll(2, 5);
+	int n = roll(5, 10);
 	std::cout << n << endl;
 	std::vector<PII> e;
 	for (int i = 2; i <= n; i++) {
@@ -29,13 +29,13 @@ int main() {
 	int m = 10;
 	std::cout << m << endl;
 	for (int i = 1; i <= m; i++) {
-		int t = roll(1, n);
+		int t = roll(1, n - 1);
 		std::cout << t << ' ';
-		std::vector<int> a(n + 1);
-		std::iota(a.begin(), a.end(), 0);
+		std::vector<int> a(n);
+		std::iota(a.begin(), a.end(), 1);
 		std::random_shuffle(a.begin() + 1, a.end());
 		for (int j = 1; j <= t; j++) {
-			std::cout << a[i] << ' ';
+			std::cout << a[j] << ' ';
 		}
 		std::cout << endl;
 	}
