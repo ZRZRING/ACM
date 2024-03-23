@@ -121,14 +121,14 @@ int solve() {
             std::cin >> S[i];
             vis[S[i]] = 1;
         }
-        std::stable_sort(S.begin(), S.end(), [&](int a, int b) {
+        std::sort(S.begin(), S.end(), [&](int a, int b) {
             return t1.dfn[a] < t1.dfn[b];
         });
         int t = S.size();
         for (int i = 1; i < t; i++) {
             S.push_back(t1.lca(S[i - 1], S[i]));
         }
-        std::stable_sort(S.begin(), S.end(), [&](int a, int b) {
+        std::sort(S.begin(), S.end(), [&](int a, int b) {
             return t1.dfn[a] < t1.dfn[b];
         });
         c = std::unique(S.begin(), S.end()) - S.begin();

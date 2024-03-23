@@ -37,6 +37,7 @@ struct TREE {
 	}
 
 	void dfs(int u, int last) {
+		dep[u] = dep[last] + 1;
 		for (int i = 1; i <= 20; i++) {
 			if (!fa[u][i - 1]) break;
 			fa[u][i] = fa[fa[u][i - 1]][i - 1];
@@ -44,16 +45,16 @@ struct TREE {
 		for (auto v : e[u]) {
 			if (v == fa[u][0]) continue;
 			fa[v][0] = u;
-			dep[v] = dep[u] + 1;
 			dfs(v, u);
 		}
 	}
 
 	int lca(int x, int y) {
-		if (dep[x] < dep[y]) std::swap(x, y);
-		for (int i = dep[x] - dep[y], j = 0; i; i >>= 1, j++) {
-			// std::cout << j << endl;
+		for (int i = dep[x] - dep[y], j = 0; i > 0; i >>= 1, j++) {
 			if (i & 1) x = fa[x][j];
+		}
+		for (int i = dep[y] - dep[x], j = 0; i > 0; i >>= 1, j++) {
+			if (i & 1) y = fa[y][j];
 		}
 		if (x != y) {
 			for (int i = 20; i >= 0; i--) {
@@ -77,6 +78,7 @@ int solve() {
 		t1.add(u, v);
 	}
 	t1.dfs(s, s);
+	
 	for (int i = 1; i <= m; i++) {
 		int x, y;
 		std::cin >> x >> y;
