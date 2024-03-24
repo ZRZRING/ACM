@@ -16,14 +16,36 @@ using i64 = long long;
 const i64 mod = 998244353;
 
 int solve() {
-	int n
+	int n;
 	std::cin >> n;
+	std::vector<std::vector<int>> e(n + 1);
 	for (int i = 1; i < n; i++) {
 		int u, v;
 		std::cin >> u >> v;
 		e[u].push_back(v);
 		e[v].push_back(u);
 	}
+	std::vector<int> col(n + 1);
+	for (int i = 1; i <= n; i++) {
+		std::cin >> col[i];
+	}
+	std::vector<int> size(n + 1), son(n + 1);
+	auto dfs1 = [&](auto self, int u, int last) -> void {
+		size[u] = 1;
+		for (auto v : e[u]) {
+			if (v == last) continue;
+			self(self, v, u);
+			size[u] += size[v];
+			if (size[v] > size[son[u]]) son[u] = v;
+		}
+	};
+	dfs1(dfs1, 1, 1);
+	auto dfs2 = [&](auto self, int u, int last, int keep) -> void {
+		if (son[u]) {
+			self(self, son[u], u, 1);
+		}
+	};
+	dfs2(dfs2, 1, 1, 1);
 	return 0;
 }
 

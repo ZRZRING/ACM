@@ -1,137 +1,84 @@
-#include <algorithm>
-#include <cstring>
-#include <iostream>
-#include <set>
+// duziteng ^ ^
+#include <bits/stdc++.h>
 using namespace std;
-struct graph {
-    struct edge {
-        int v, w, next;
-    } e[1000005];
-    int head[500005], ch, cnt;
-    void addedge(int u, int v, int w) {
-        e[++cnt].v = v;
-        e[cnt].w = w;
-        e[cnt].next = head[u];
-        head[u] = cnt;
-    }
-} t1, t2;
-int fa[500005][25], mind[500005][25], dis[500005], dep[500005], dfn[500005], cnt;
-int a[500005];
-long long f[500005];
-int sta[500005];
-int d;
-set<int> s;
-bool cmp(int x, int y) {
-    return dfn[x] < dfn[y];
-}
-void dfs1(int u, int f) {
-    dfn[u] = ++cnt;
-    dep[u] = dep[f] + 1;
-    fa[u][0] = f;
-    for (int i = 1; i <= 20; i++) {
-        fa[u][i] = fa[fa[u][i - 1]][i - 1];
-        mind[u][i] = min(mind[u][i - 1], mind[fa[u][i - 1]][i - 1]);
-    }
-    for (int i = t1.head[u]; i; i = t1.e[i].next) {
-        int v = t1.e[i].v, w = t1.e[i].w;
-        if (v != f) {
-            dis[v] = dis[u] + w;
-            mind[v][0] = w;
-            dfs1(v, u);
-        }
-    }
-}
-void dfs2(int u) {
-    f[u] = 0;
-    for (int i = t2.head[u]; i; i = t2.e[i].next) {
-        int v = t2.e[i].v, w = t2.e[i].w;
-        dfs2(v);
-        if (s.count(v))
-            f[u] += w;
-        else
-            f[u] += min(f[v], 1ll * w);
-    }
-    return;
-}
-int getlca(int x, int y) {
-    d = 1 << 30;
-    if (dep[x] > dep[y])
-        swap(x, y);
-    for (int i = 20; i >= 0; i--)
-        if (dep[y] - (1 << i) >= dep[x]) {
-            d = min(d, mind[y][i]);
-            y = fa[y][i];
-        }
-    if (x == y)
-        return x;
-    for (int i = 20; i >= 0; i--)
-        if (fa[x][i] != fa[y][i]) {
-            d = min(d, min(mind[x][i], mind[y][i]));
-            x = fa[x][i], y = fa[y][i];
-        }
-    return fa[x][0];
-}
-int main() {
-    ios::sync_with_stdio(false);
-    int n;
-    cin >> n;
-    for (int i = 1; i < n; i++) {
-        int u, v, w;
-        cin >> u >> v >> w;
-        t1.addedge(u, v, w);
-        t1.addedge(v, u, w);
-    }
-    dfs1(1, 1);
-    int q;
-    cin >> q;
-    while (q--) {
-        s.clear();
-        int k;
-        cin >> k;
-        for (int i = 1; i <= k; i++) {
-            cin >> a[i];
-            s.insert(a[i]);
-        }
-        sort(a + 1, a + k + 1, cmp);
-        sta[1] = 1;
-        int top = 1;
-        t2.head[1] = 0;
-        for (int i = 1; i <= k; i++) {
-            int lca = getlca(a[i], sta[top]);
-            if (lca != sta[top])  // 新加的点和原来在栈里的点不在一条链上
-            {
-                while (dfn[lca] < dfn[sta[top - 1]]) {
-                    int u = sta[top - 1], v = sta[top];
-                    getlca(u, v);
-                    t2.addedge(u, v, d);
-                    top--;
-                }
-                if (dfn[lca] > dfn[sta[top - 1]])  // lca 未入栈
-                {
-                    getlca(lca, sta[top]);
-                    t2.head[lca] = 0;
-                    t2.addedge(lca, sta[top], d);
-                    top--;
-                    sta[++top] = lca;
-                } else {
-                    int u = sta[top - 1], v = sta[top];
-                    getlca(u, v);
-                    t2.addedge(u, v, d);
-                    top--;
-                }
+const int N = 5e5+10;
+const int M = 998244353;
+const int mod = 1e9+7;
+#define db double
+#define int long long
+int up(int a,int b){return a<0?a/b:(a+b-1)/b;}
+#define endl '\n'
+#define all(x) (x).begin(),(x).end()
+#define YES cout<<"Yes"<<endl;
+#define NO cout<<"No"<<endl;
+#define pi acos(-1)
+#define INF 0x3f3f3f3f3f3f3f3f
+#define PII pair<int,int>
+#define fast ios::sync_with_stdio(false);cin.tie(nullptr);
+int n,m,color[1000010],flag;
+vector<PII>g[1000010];
+void dfs(int u,int st){
+    if(flag)return;
+    color[u]=st;
+    for(auto [v,w]:g[u]){
+        if(color[v]==-1)dfs(v,(st+w)%2);
+        else{
+            if(color[v]!=(st+w)%2){
+                cout<<0<<endl;
+                flag=1;
+                return;
             }
-            t2.head[a[i]] = 0;
-            sta[++top] = a[i];
         }
-        while (top > 1)  // 最后记得把栈里的点也连上边
-        {
-            int u = sta[top - 1], v = sta[top];
-            getlca(u, v);
-            t2.addedge(u, v, d);
-            top--;
-        }
-        dfs2(1);
-        cout << f[1] << endl;
+        if(flag)return;
     }
-    return 0;
+}
+void solve(){
+    flag=0;
+    cin>>n>>m;
+    int a[n+1][m+1];
+    for(int i=1;i<=n;i++){
+        g[i].clear();
+        color[i]=-1;
+        for(int j=1;j<=m;j++){
+            char c;cin>>c;
+            a[i][j]=(c=='1');
+        }
+    }
+    for(int i=1,j=m;i<=j;i++,j--){
+        vector<int>l,r;
+        for(int k=1;k<=n;k++)if(a[k][i])l.push_back(k);
+        for(int k=1;k<=n;k++)if(a[k][j])r.push_back(k);
+        if(l.size()+r.size()>=3){
+            cout<<0<<endl;
+            return;
+        }
+        if(l.size()==2){
+            g[l[0]].push_back({l[1],1});
+            g[l[1]].push_back({l[0],1});
+        }
+        if(r.size()==2){
+            g[r[0]].push_back({r[1],1});
+            g[r[1]].push_back({r[0],1});
+        }
+        if(l.size()==1&&r.size()==1){
+            g[r[0]].push_back({l[0],0});
+            g[l[0]].push_back({r[0],0});
+        }
+    }
+    int ans=1;
+    for(int i=1;i<=n;i++){
+        if(color[i]==-1){
+            dfs(i,0);
+            if(flag)return;
+            (ans*=2)%=mod;
+        }
+    }
+    cout<<ans<<endl;
+}
+signed main(){
+    fast
+    int t;t=1;cin>>t;
+    while(t--) {
+        solve();
+    }
 }

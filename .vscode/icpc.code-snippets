@@ -137,5 +137,56 @@
             "};"
         ],
         "description": "LCA Temple"
+    },
+	"qpow Temple": {
+        "scope": "cpp",
+        "prefix": "qpow",
+        "body": [
+            "i64 qpow(i64 a, i64 x) {",
+            "\ti64 res = 1;",
+            "\twhile (x) {",
+            "\t\tif (x & 1) res = res * a % mod;",
+            "\t\ta = a * a % mod;",
+            "\t\tx >>= 1;",
+            "\t}",
+            "\treturn res;",
+            "}"
+        ],
+        "description": "qpow Temple"
+    },
+	"DSU Temple": {
+        "scope": "cpp",
+        "prefix": "DSU",
+        "body": [
+            "struct DSU {",
+            "\tint n;",
+            "",
+            "\tstd::vector<int> fa, size;",
+            "",
+            "\tDSU(int n) : n(n) {",
+            "\t\tfa.resize(n + 1);",
+            "\t\tsize.resize(n + 1);",
+            "\t\tstd::iota(fa.begin(), fa.end(), 0);",
+            "\t\tstd::fill(size.begin(), size.end(), 1);",
+            "\t}",
+            "",
+            "\tint find(int x) {",
+            "\t\treturn x == fa[x] ? x : fa[x] = find(fa[x]);",
+            "\t}",
+            "",
+            "\tvoid merge(int x, int y) {",
+            "\t\tx = find(x); y = find(y);",
+            "\t\tif (x == y) return;",
+            "\t\tif (size[x] < size[y]) {",
+            "\t\t\tfa[x] = y;",
+            "\t\t\tsize[y] += size[x];",
+            "\t\t} else {",
+            "\t\t\tfa[y] = x;",
+            "\t\t\tsize[x] += size[y];",
+            "\t\t}",
+            "\t}",
+            "};"
+        ],
+        "description": "DSU Temple"
     }
 }

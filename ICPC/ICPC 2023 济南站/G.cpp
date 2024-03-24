@@ -25,33 +25,47 @@ i64 qpow(i64 a, i64 x) {
 	return res;
 }
 
+struct DSU {
+	int n;
+
+	std::vector<int> fa, size;
+
+	DSU(int n) : n(n) {
+		fa.resize(n + 1);
+		size.resize(n + 1);
+		std::iota(fa.begin(), fa.end(), 0);
+		std::fill(size.begin(), size.end(), 1);
+	}
+
+	int find(int x) {
+		return x == fa[x] ? x : fa[x] = find(fa[x]);
+	}
+
+	void merge(int x, int y) {
+		x = find(x); y = find(y);
+		if (x == y) return;
+		if (size[x] < size[y]) {
+			fa[x] = y;
+			size[y] += size[x];
+		} else {
+			fa[y] = x;
+			size[x] += size[y];
+		}
+	}
+};
+
 int solve() {
 	int n, m;
 	std::cin >> n >> m;
-	std::vector<std::vector<int>> a(n + 1, std::vector<int>(m + 1, 0));
+	std::vector<std::vector<int>> a(2 * n + 1, std::vector<int>(m + 1, 0));
 	for (int i = 1; i <= n; i++) {
 		std::string s;
 		std::cin >> s;
 		for (int j = 1; j <= m; j++) {
 			a[i][j] = s[j - 1] - '0';
+			a[i + n][j] = s[m - j] - '0';
 		}
 	}
-	for (int j = 1; j <= m; j++) {
-        int cnt = 0;
-	    for (int i = 1; i <= n; i++) {
-			if (a[i][j]) cnt++;
-            if (a[i][m - j + 1]) cnt++;
-		}
-        if (cnt >= 3) {
-            std::cout << 0 << endl;
-            return 0;
-        }
-	}
-	std::vector<int> fa(n + 1);
-	std::iota(fa.begin(), fa.end(), 0);
-	std::function<int(int)> find = [&](int x) -> int {
-		return fa[x] == x ? x : fa[x] = find(fa[x]);
-	};
 	for (int j = 1; j <= m; j++) {
 		std::vector<int> t;
 		for (int i = 1; i <= n; i++) {

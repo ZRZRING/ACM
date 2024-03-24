@@ -1,93 +1,93 @@
-#include <bits/stdc++.h>
-#define debug(a) cerr << #a << "=" << a << '\n';
-#define pque priority_queue
-#define ef emplace_front
-#define eb emplace_back
-#define pf push_front
-#define pb push_back
-#define ppf pop_front
-#define ppb pop_back
-#define all(x) x.begin(), x.end()
-#define arr(x) x.begin() + 1, x.end()
-#define lb0(x, y) lower_bound(x.begin(), x.end(), y) - x.begin();
-#define lb1(x, y) lower_bound(x.begin() + 1, x.end(), y) - x.begin();
-#define rev(x) reverse(all(x))
-#define fi first
-#define se second
-#define INF 0x3f3f3f3f
-#define rep(i, a, b) for(int i = a; i <= b; i++) 
-#define per(i, a, b) for(int i = a; i >= b; i--) 
-#define repp(i, a, b) for(int i = a; i < b; i++) 
-#define perr(i, a, b) for(int i = a - 1; i >= b; i--) 
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <queue>
 using namespace std;
-using ll = long long;
-using tpi = tuple<int, int, int>;
-using tpl = tuple<ll, ll, ll>;
-using tpd = tuple<double, double, double>;
-using pii = pair<int, int>;
-using pdd = pair<double, double>;
-using pll = pair<ll, ll>;
-const int N = 2e6 + 10;
-const int mod = 998244353;
-void solve() {
-    int n, m, L;
-    cin >> n >> m;
-    string s;
-    cin >> s;
-    auto manacher = [&](string s) -> vector<int> {
-        string t = "$#";
-        for (auto c : s) t += c, t += '#';
-        t += '&';
-        L = t.size();
-        int R = 0, C;
-        vector<int> r(L);//半径-1
-        for (int i = 1; i < L - 1; i++) {
-            if (i < R) r[i] = min(r[(C << 1) - i], r[C] + C - r[i]);//在边界内，说明对称位置可能合适
-            else r[i] = 1;//不在边界内，重开
-            while (i + r[i] >= 0 && i + r[i] < L && t[i + r[i]] == t[i - r[i]]) r[i]++;//扩展半径
-            if (r[i] + i > R) {//更新右界和对应中心
-                R = r[i] + i;
-                C = i;
-            }
-        }
-        return r;
-    };
-    auto res = manacher(s);
-    vector<int> f1(n), f2(n);
-    for (int i = n - 1; i >= 0; i--) {
-        f1[i] = (i + 1 < n && s[i] == s[i + 1] ? f1[i + 1] : i + 1);//向右找到第一个不相等的字符
-        f2[i] = (i + 2 < n && s[i] == s[i + 2] ? f2[i + 1] : i + 2);//向右找到第一个奇偶性相同且不相等的字符
+void file() {
+    freopen("std.in", "r", stdin);
+    freopen("wa.out", "w", stdout);
+}
+const int N = 1e6 + 10, V = 2e7 + 10, inf = 1e9;
+inline int read() {
+    bool sym = 0;
+    int res = 0;
+    char ch = getchar();
+    while (!isdigit(ch))
+        sym |= (ch == '-'), ch = getchar();
+    while (isdigit(ch))
+        res = (res << 3) + (res << 1) + (ch ^ 48), ch = getchar();
+    return sym ? -res : res;
+}
+struct EDGE {
+    int u, v, nxt, dis;
+} edge[N];
+int n, m, head[N], cnt, siz[N], son[N], po[N], L[N], R[N], dis[N], ans[N], mx[V], dep[N];
+char ch[N];
+void add(int u, int v, int t) {
+    edge[++cnt] = (EDGE){u, v, head[u], t};
+    head[u] = cnt;
+}
+void dfs1(int u) {
+    siz[u] = 1;
+    L[u] = ++cnt;
+    po[cnt] = u;
+    for (int e = head[u]; e; e = edge[e].nxt) {
+        int v = edge[e].v;
+        dis[v] = dis[u] ^ edge[e].dis;
+        dep[v] = dep[u] + 1;
+        dfs1(v);
+        siz[u] += siz[v];
+        if (siz[v] > siz[son[u]])
+            son[u] = v;
     }
-    ll ans = 0;
-    for (int i = 1; i <= m; i++) {
-        ans = 0;
-        int l, r;
-        cin >> l >> r;
-        l--;
-        int len = r - l;//询问区间长度
-        if (f1[l] < r) {//[l, r]有不相等的字符
-            int t = len - 1 - (len - 1) % 2;//<len的最长偶数
-            if (t >= 2) ans += (t / 2) * (2 + t) / 2;  
-        }
-        if (f2[l] < r || f2[l + 1] < r) {
-            int t = len - 1 - len % 2;//<len的最长奇数
-            if (t >= 3) ans += (t / 2) * (3 + t) / 2;//1肯定是了，不用判
-        }
-        //长度=n:不和其它情况一样，只要有一处不合条件就可以判ans有值，而是需要判断整段是否是回文串
-        //如果以字符串中心的回文半径>=字符串长度，那么该子串就是一个回文串
-        if (res[l + r + 1] < len) ans += len;
-        cout << ans << '\n';
+    R[u] = cnt;
+}
+void dfs2(int u, bool keep) {
+    for (int e = head[u]; e; e = edge[e].nxt) {
+        int v = edge[e].v;
+        if (v == son[u])
+            continue;
+        dfs2(v, 0);
+        ans[u] = max(ans[u], ans[v]);
     }
-}  
-signed main() {
-    // ios::sync_with_stdio(0);
-    // cin.tie(0);
-    // cout.tie(0);
-
-    int _ = 1;
-    cin >> _;
-    while (_--) {
-        solve();
+    if (son[u])
+        dfs2(son[u], 1), ans[u] = max(ans[u], ans[son[u]]);
+    ans[u] = max(ans[u], mx[dis[u]] - dep[u]);
+    for (int i = 0; i <= 21; i++)
+        ans[u] = max(ans[u], mx[dis[u] ^ 1 << i] - dep[u]);
+    mx[dis[u]] = max(mx[dis[u]], dep[u]);
+    for (int e = head[u]; e; e = edge[e].nxt) {
+        int v = edge[e].v;
+        if (v == son[u])
+            continue;
+        for (int i = L[v], x = po[i]; i <= R[v]; i++, x = po[i]) {
+            ans[u] = max(ans[u], mx[dis[x]] + dep[x] - 2 * dep[u]);
+            for (int i = 0; i <= 21; i++)
+                ans[u] = max(ans[u], mx[dis[x] ^ 1 << i] + dep[x] - 2 * dep[u]);
+        }
+        for (int i = L[v], x = po[i]; i <= R[v]; i++, x = po[i]) {
+            mx[dis[x]] = max(mx[dis[x]], dep[x]);
+        }
     }
+    if (!keep) {
+        for (int i = L[u], x = po[i]; i <= R[u]; i++, x = po[i])
+            mx[dis[x]] = -inf;
+    }
+}
+int main() {
+    n = read();
+    memset(mx, 128, sizeof(mx));
+    for (int v = 2; v <= n; v++) {
+        int u = read();
+        char t = getchar();
+        add(u, v, 1ll << t - 'a');
+    }
+    dep[1] = 1;
+    dfs1(1);
+    dfs2(1, 1);
+    for (int i = 1; i <= n; i++)
+        printf("%d ", ans[i]);
     return 0;
 }

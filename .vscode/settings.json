@@ -94,5 +94,5 @@
         "valarray": "cpp",
         "variant": "cpp"
     },
-    "git.enabled": false,
+    "git.enabled": true,
 }
