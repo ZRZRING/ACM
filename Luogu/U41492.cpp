@@ -29,23 +29,60 @@ int solve() {
 	for (int i = 1; i <= n; i++) {
 		std::cin >> col[i];
 	}
-	std::vector<int> size(n + 1), son(n + 1);
+	std::vector<int> size(n + 1), son(n + 1), L(n + 1), R(n + 1), node(1);
 	auto dfs1 = [&](auto self, int u, int last) -> void {
 		size[u] = 1;
+		node.push_back(u);
+		L[u] = node.size() - 1;
 		for (auto v : e[u]) {
 			if (v == last) continue;
 			self(self, v, u);
 			size[u] += size[v];
 			if (size[v] > size[son[u]]) son[u] = v;
 		}
+		R[u] = node.size() - 1;
 	};
 	dfs1(dfs1, 1, 1);
+	int now = 0;
+	std::vector<int> cnt(n + 1), ans(n + 1);
+	auto add = [&](int x) -> void {
+		if (cnt[x] == 0) now++;
+		cnt[x]++;
+	};
+	auto del = [&](int x) -> void {
+		cnt[x]--;
+		if (cnt[x] == 0) now--;
+	};
 	auto dfs2 = [&](auto self, int u, int last, int keep) -> void {
+		for (auto v : e[u]) {
+			if (v == last || v == son[u]) continue;
+			self(self, v, u, 0);
+		}
 		if (son[u]) {
 			self(self, son[u], u, 1);
 		}
+		for (auto v : e[u]) {
+			if (v == last || v == son[u]) continue;
+			for (int i = L[v]; i <= R[v]; i++) {
+				add(col[node[i]]);
+			}
+		}
+		add(col[u]);
+		ans[u] = now;
+		if (keep == 0) {
+			for (int i = L[u]; i <= R[u]; i++) {
+				del(col[node[i]]);
+			}
+		}
 	};
 	dfs2(dfs2, 1, 1, 1);
+	int m;
+	std::cin >> m;
+	while (m--) {
+		int x;
+		std::cin >> x;
+		std::cout << ans[x] << endl;
+	}
 	return 0;
 }
 

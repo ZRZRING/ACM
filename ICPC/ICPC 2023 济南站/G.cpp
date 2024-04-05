@@ -13,7 +13,7 @@ using i64 = long long;
 #define Fast_IOS std::ios::sync_with_stdio(false), std::cin.tie(0)
 #define debug(x) std::cerr << "In Line " << __LINE__ << " the " << #x << " = " << x << '\n';
 
-const i64 mod = 998244353;
+const i64 mod = 1e9 + 7;
 
 i64 qpow(i64 a, i64 x) {
 	i64 res = 1;
@@ -42,8 +42,10 @@ struct DSU {
 	}
 
 	void merge(int x, int y) {
-		x = find(x); y = find(y);
+		x = find(x);
+		y = find(y);
 		if (x == y) return;
+		n--;
 		if (size[x] < size[y]) {
 			fa[x] = y;
 			size[y] += size[x];
@@ -66,23 +68,34 @@ int solve() {
 			a[i + n][j] = s[m - j] - '0';
 		}
 	}
+	DSU dsu(2 * n + 1);
+	std::vector<std::vector<int>> c(m + 1);
 	for (int j = 1; j <= m; j++) {
-		std::vector<int> t;
 		for (int i = 1; i <= n; i++) {
-			if (a[i][j] || a[i][m - j + 1]) {
-				t.push_back(i);
-			}
-		}
-		for (int i = 1; i < t.size(); i++) {
-			int x = find(t[i]), y = find(t[i - 1]);
-			if (x != y) fa[x] = y;
+			if (a[i][j]) c[j].push_back(i);
 		}
 	}
-	i64 cnt = 0;
+	for (int j = 1; j <= m; j++) {
+		if (c[j].size() + c[m - j + 1].size() >= 3) {
+			std::cout << 0 << endl;
+			return 0;
+		}
+		if (c[j].size() == 2) {
+			dsu.merge(c[j][0], c[j][1] + n);
+			dsu.merge(c[j][1], c[j][0] + n);
+		}
+		if (c[j].size() && c[m - j + 1].size()) {
+			dsu.merge(c[j][0], c[m - j + 1][0]);
+			dsu.merge(c[j][0] + n, c[m - j + 1][0] + n);
+		}
+	}
 	for (int i = 1; i <= n; i++) {
-		if (i == find(i)) cnt++;
+		if (dsu.find(i) == dsu.find(i + n)) {
+			std::cout << 0 << endl;
+			return 0;
+		}
 	}
-	std::cout << qpow(2, cnt) << endl;
+	std::cout << qpow(2, dsu.n / 2) << endl;
 	return 0;
 }
 
