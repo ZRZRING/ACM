@@ -1,84 +1,42 @@
-// duziteng ^ ^
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 5e5+10;
-const int M = 998244353;
-const int mod = 1e9+7;
-#define db double
-#define int long long
-int up(int a,int b){return a<0?a/b:(a+b-1)/b;}
-#define endl '\n'
-#define all(x) (x).begin(),(x).end()
-#define YES cout<<"Yes"<<endl;
-#define NO cout<<"No"<<endl;
-#define pi acos(-1)
-#define INF 0x3f3f3f3f3f3f3f3f
-#define PII pair<int,int>
-#define fast ios::sync_with_stdio(false);cin.tie(nullptr);
-int n,m,color[1000010],flag;
-vector<PII>g[1000010];
-void dfs(int u,int st){
-    if(flag)return;
-    color[u]=st;
-    for(auto [v,w]:g[u]){
-        if(color[v]==-1)dfs(v,(st+w)%2);
-        else{
-            if(color[v]!=(st+w)%2){
-                cout<<0<<endl;
-                flag=1;
-                return;
-            }
+#define pii pair<int ,int>
+int n, k, t, S, Long = 0,  ans, in[10005], pa[10005];
+vector<int> F, Edge[10005];
+queue<pii> Q;
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> k;
+        for (int j = 0; j < k; j++) {
+            cin >> t;
+            in[t]++;
+            pa[t] = i;
+            Edge[i].push_back(t);
         }
-        if(flag)return;
+        sort(Edge[i].begin(), Edge[i].end());
     }
-}
-void solve(){
-    flag=0;
-    cin>>n>>m;
-    int a[n+1][m+1];
-    for(int i=1;i<=n;i++){
-        g[i].clear();
-        color[i]=-1;
-        for(int j=1;j<=m;j++){
-            char c;cin>>c;
-            a[i][j]=(c=='1');
+    for (int i = 0; i < n; i++) if (in[i] == 0) S = i;
+    while(!Q.empty()) Q.pop();
+    Q.push({S, 1});
+    while (!Q.empty()) {
+        int now = Q.front().first, D = Q.front().second;
+        Q.pop();
+        if (D > Long) {
+            Long = D;
+            ans = now;
         }
+        for (auto nex : Edge[now]) Q.push({nex, D + 1});
     }
-    for(int i=1,j=m;i<=j;i++,j--){
-        vector<int>l,r;
-        for(int k=1;k<=n;k++)if(a[k][i])l.push_back(k);
-        for(int k=1;k<=n;k++)if(a[k][j])r.push_back(k);
-        if(l.size()+r.size()>=3){
-            cout<<0<<endl;
-            return;
-        }
-        if(l.size()==2){
-            g[l[0]].push_back({l[1],1});
-            g[l[1]].push_back({l[0],1});
-        }
-        if(r.size()==2){
-            g[r[0]].push_back({r[1],1});
-            g[r[1]].push_back({r[0],1});
-        }
-        if(l.size()==1&&r.size()==1){
-            g[r[0]].push_back({l[0],0});
-            g[l[0]].push_back({r[0],0});
-        }
+    cout << Long << '\n';
+    while (ans != S) {
+        F.push_back(ans);
+        ans = pa[ans];
     }
-    int ans=1;
-    for(int i=1;i<=n;i++){
-        if(color[i]==-1){
-            dfs(i,0);
-            if(flag)return;
-            (ans*=2)%=mod;
-        }
+    F.push_back(S);
+    for (int i = F.size() - 1; ~i; --i) {
+        cout << F[i];
+        if (i != 0) cout << ' ';
     }
-    cout<<ans<<endl;
-}
-signed main(){
-    fast
-    int t;t=1;cin>>t;
-    while(t--) {
-        solve();
-    }
-}
+    return 0;
+} 

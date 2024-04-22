@@ -1,4 +1,5 @@
-g++ wa.cpp -o wa -w -Wl,--stack=19198101 -std=c++11 -O2
-wa.exe < data.txt > wa.txt
-fc wa.txt std.txt
-if errorlevel 1 pause
+@echo off
+cd %~dp0
+g++ wa.cpp -o wa -w -std=c++20 -O2
+wa.exe < in.txt > out.txt
+fc out.txt ans.txt

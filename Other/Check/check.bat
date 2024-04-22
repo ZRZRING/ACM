@@ -1,19 +1,15 @@
 @echo off
-echo 1
-g++ data.cpp -o data -w -Wl,--stack=19198101 -std=c++20 -O2
-g++ wa.cpp -o wa -w -Wl,--stack=19198101 -std=c++20 -O2
-g++ std.cpp -o std -w -Wl,--stack=19198101 -std=c++20 -O2
-data.exe > data.txt
-wa.exe < data.txt > wa.txt
-std.exe < data.txt > std.txt
-fc wa.txt std.txt
-if errorlevel 1 pause
-for /l %%a in (2,1,100000) do (
+cd %~dp0
+echo Compiling...
+g++ data.cpp -o data -w -std=c++17 -O2
+g++ wa.cpp -o wa -w -std=c++17 -O2
+g++ std.cpp -o std -w -std=c++17 -O2
+echo Compiled!
+for /l %%a in (1,1,100000) do (
 	echo %%a
-	data.exe > data.txt
-	wa.exe < data.txt > wa.txt
-	std.exe < data.txt > std.txt
-	fc wa.txt std.txt
-	if errorlevel 1 pause
+	data.exe > in.txt
+	wa.exe < in.txt > out.txt
+	std.exe < in.txt > ans.txt
+	fc out.txt ans.txt
+	if errorlevel 1 (exit)
 )
-:ed

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "e6284d10580e9fde",
+        "id": "50b71c424ca607df",
         "type": "tabs",
         "children": [
           {
-            "id": "0d9f9e5220cbd7e4",
+            "id": "bb0fe3be138248ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+                "file": "TODO LIST.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md"
+                "file": "TODO LIST.md"
               }
             }
           },
@@ -92,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+                "file": "TODO LIST.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
+                "file": "TODO LIST.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,10 +151,29 @@
       "command-palette:打开命令面板": true
     }
   },
-  "active": "0d9f9e5220cbd7e4",
+  "active": "bb0fe3be138248ea",
   "lastOpenFiles": [
+    "Other/Note/Topics/动态规划.md",
+    "TODO LIST.md",
+    "未命名",
+    "Other/Note/Topics/计算几何.md",
+    "Other/Note/Topics/数据结构.md",
+    "Other/Note/Knowledge/数论计算.md",
+    "Other/Note/Knowledge/数论函数.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 853.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 846.md",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 259.md",
+    "Other/Note/CodeForces/Codeforces Beta Round/Codeforces Beta Round 40.md",
+    "Other/Note/CodeForces/Codeforces Beta Round/Codeforces Beta Round 31.md",
+    "Other/Note/Topics/字符串.md",
+    "Other/Note/Topics/诈骗.md",
+    "Other/Note/Topics/图论.md",
+    "Other/Note/Topics/思维.md",
+    "Other/Note/Topics/数学.md",
+    "Other/Note/Topics/基础算法.md",
+    "TODO-LIST.md",
+    "Other/蓝桥杯 训练.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 932.md",
-    "Other/tmp.md",
     "Codeforces/Other Round/Pinely Round 2/E.cpp",
     "Codeforces/Other Round/Pinely Round 2/D.cpp",
     "Codeforces/Other Round/Pinely Round 2/C.cpp",
@@ -164,35 +183,16 @@
     "Codeforces/Other Round/CodeTON Round 6/D.cpp",
     "Codeforces/Other Round/CodeTON Round 6/C.cpp",
     "Codeforces/Other Round/CodeTON Round 6/B.cpp",
-    "Codeforces/Other Round/CodeTON Round 6/A.cpp",
     "Other/Picture/b4dbf21e3d779b6212e7bf360afd6d41-1700549564131-5.png",
     "Other/Picture/1074429cd9de4424a8994499fd546984.png",
     "Other/Picture/1645a99fd29c49e5a57a8aab1144eab1.png",
     "Other/Picture/17e29fb7d7884e7fa6056e6f096ba176.png",
-    "Other/Note/CodeForces/Codeforces Beta Round/Codeforces Beta Round 40.md",
-    "Other/Note/CodeForces/Codeforces Beta Round/Codeforces Beta Round 31.md",
     "Other/Note/CodeForces/CodeTON Round/CodeTON Round 7.md",
     "Other/Note/CodeForces/CodeTON Round/CodeTON Round 5.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 894.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 878.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 874.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 579.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 914.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 901.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 899.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 897.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 896.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 889.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 887.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 882.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 879.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 857.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 853.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 852.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 846.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 821.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 578.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 532.md",
     "Other/Picture/3.jpg",
     "Other/Picture/2.jpg",
     "Other/Picture/1.jpg",

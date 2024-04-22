@@ -5,77 +5,67 @@ using i64 = long long;
 #define NO 2
 #define YES 1
 #define endl '\n'
-#define lg(x) ((int)log10(x))
-#define log(x) ((int)log2(x))
 #define PII std::pair<i64, i64>
-#define abs(x) ((x) < 0 ? -(x) : (x))
-#define MOD(x) ((x) = ((x) % mod + mod) % mod)
 #define Fast_IOS std::ios::sync_with_stdio(false), std::cin.tie(0)
 #define debug(x) std::cerr << "In Line " << __LINE__ << " the " << #x << " = " << x << '\n';
 
 const i64 mod = 998244353;
 
-i64 qpow(i64 a, i64 x) {
-	i64 res = 1;
-	while (x) {
-		if (x & 1) res = res * a % mod;
-		a = a * a % mod;
-		x >>= 1;
-	}
-	return res;
-}
+template <class T> void MOD(T &x) {x = x % mod;}
+template <class T> i64 lg(T x) {return (int)log10(x);}
+template <class T> i64 log(T x) {return (int)log2(x);}
+template <class T> i64 abs(T x) {return x < 0 ? -x : x;}
+template <class T> i64 mysqrt(T x) {return std::floor(sqrtl(x));}
 
 int solve() {
-	int n, m;
-	std::cin >> n >> m;
-	std::vector<std::vector<int>> a(n + 1, std::vector<int>(m + 1, 0));
+	int n;
+	std::cin >> n;
+	std::vector<int> a(n + 1), d(n + 1);
+	std::vector<std::vector<int>> e(n + 1);
+	for (int i = 0; i < n; i++) {
+		int m;
+		std::cin >> m;
+		while (m--) {
+			int x;
+			std::cin >> x;
+			e[x].push_back(i);
+			d[i]++;
+		}
+	}
+	std::queue<int> q;
+	std::vector<int> f(n + 1), to(n + 1, -1);
 	for (int i = 1; i <= n; i++) {
-		std::string s;
-		std::cin >> s;
-		for (int j = 1; j <= m; j++) {
-			a[i][j] = s[j - 1] - '0';
-		}
+		if (!d[i]) q.push(i), f[i] = 1;
 	}
-	for (int j = 1; j <= m; j++) {
-        int cnt = 0;
-	    for (int i = 1; i <= n; i++) {
-			if (a[i][j]) cnt++;
-            if (a[i][m - j + 1]) cnt++;
-		}
-        if (cnt >= 3) {
-            std::cout << 0 << endl;
-            return 0;
-        }
-	}
-	std::vector<int> fa(n + 1);
-	std::iota(fa.begin(), fa.end(), 0);
-	std::function<int(int)> find = [&](int x) -> int {
-		return fa[x] == x ? x : fa[x] = find(fa[x]);
-	};
-	for (int j = 1; j <= m; j++) {
-		std::vector<int> t;
-		for (int i = 1; i <= n; i++) {
-			if (a[i][j] || a[i][m - j + 1]) {
-				t.push_back(i);
+	while (!q.empty()) {
+		int u = q.front();
+		q.pop();
+		for (auto v : e[u]) {
+			if (f[u] + 1 > f[v] || f[u] + 1 == f[v] && u < to[v]) {
+				f[v] = f[u] + 1;
+				to[v] = u;
 			}
-		}
-		for (int i = 1; i < t.size(); i++) {
-			int x = find(t[i]), y = find(t[i - 1]);
-			if (x != y) fa[x] = y;
+			if (!--d[v]) q.push(v);
 		}
 	}
-	i64 cnt = 0;
-	for (int i = 1; i <= n; i++) {
-		if (i == find(i)) cnt++;
+	for (int i = 0; i < n; i++) {
+		if (e[i].size() == 0) {
+			std::cout << f[i] << endl;
+			int u = i;
+			while (to[u] != -1) {
+				std::cout << u << ' ';
+				u = to[u];
+			}
+			std::cout << u << endl;
+			return 0;
+		}
 	}
-	std::cout << qpow(2, cnt) << endl;
-	return 0;
 }
 
 int main() {
 	Fast_IOS;
 	int T = 1;
-	std::cin >> T;
+	// std::cin >> T;
 	while (T--) {
 		int t = solve();
 		if (t == 0) continue;
