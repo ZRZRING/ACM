@@ -20,14 +20,16 @@ template <class T> i64 mysqrt(T x) {return std::floor(sqrtl(x));}
 int solve() {
 	int n, k, c = 1;
 	std::cin >> n >> k;
-	while (n && k) {
-		std::cout << std::min(c, k) << ' ';
-		n--;
-		k -= c;
-		c *= 2;
+	if (n == 1) {
+		std::cout << k << endl;
+		return 0;
 	}
-	if (k > 0) std::cout << k << endl;
-	else std::cout << endl;
+	n -= 2;
+	int ans = 0;
+	while ((1 << c) - 1 < k) ans = (1 << c) - 1, c++;
+	std::cout << ans << ' ' << k - ans << ' ';
+	while (n--) std::cout << 0 << ' ';
+	std::cout << endl;
 	return 0;
 }
 

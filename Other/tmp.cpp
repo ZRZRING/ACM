@@ -11,21 +11,37 @@ using i64 = long long;
 
 const i64 mod = 998244353;
 
-template <class T> void MOD(T &x) {x = x % mod;}
-template <class T> i64 lg(T x) {return (int)log10(x);}
-template <class T> i64 log(T x) {return (int)log2(x);}
-template <class T> i64 abs(T x) {return x < 0 ? -x : x;}
-template <class T> i64 mysqrt(T x) {return std::floor(sqrtl(x));}
+template <class T> void MOD(T &x) {x = (x % mod + mod) % mod;}
+template <class T> T lg(T x) {return (T)log10(x);}
+template <class T> T log(T x) {return (T)log2(x);}
+template <class T> T abs(T x) {return x < 0 ? -x : x;}
+template <class T> T mysqrt(T x) {return std::floor(sqrtl(x));}
 
 int solve() {
-	std::cout << __cplusplus;
+	int n;
+	std::cin >> n;
+	std::priority_queue<int> q;
+	for (int i = 1; i <= n; i++) {
+		int x;
+		std::cin >> x;
+		q.push(x);
+	}
+	while (q.size() > 1) {
+		int x = q.top();
+		q.pop();
+		int y = q.top();
+		q.pop();
+		if (x != y) q.push(abs(x - y));
+	}
+	if (q.empty()) std::cout << 0 << endl;
+	else std::cout << q.top() << endl;
 	return 0;
 }
 
 int main() {
 	Fast_IOS;
 	int T = 1;
-	// std::cin >> T;
+	std::cin >> T;
 	while (T--) {
 		int t = solve();
 		if (t == 0) continue;

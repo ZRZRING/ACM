@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "50b71c424ca607df",
+        "id": "368e5424965d56a1",
         "type": "tabs",
         "children": [
           {
-            "id": "bb0fe3be138248ea",
+            "id": "b326c977df786319",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TODO LIST.md",
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO LIST.md"
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md"
               }
             }
           },
@@ -92,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO LIST.md",
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO LIST.md",
+                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,10 +151,14 @@
       "command-palette:打开命令面板": true
     }
   },
-  "active": "bb0fe3be138248ea",
+  "active": "b326c977df786319",
   "lastOpenFiles": [
-    "Other/Note/Topics/动态规划.md",
+    "Codeforces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940/E.exe",
+    "Codeforces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940/E.cpp",
+    "Other/Picture/Pasted image 20240425201110.png",
+    "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
     "TODO LIST.md",
+    "Other/Note/Topics/动态规划.md",
     "未命名",
     "Other/Note/Topics/计算几何.md",
     "Other/Note/Topics/数据结构.md",
@@ -182,7 +186,6 @@
     "Codeforces/Other Round/Pinely Round 2",
     "Codeforces/Other Round/CodeTON Round 6/D.cpp",
     "Codeforces/Other Round/CodeTON Round 6/C.cpp",
-    "Codeforces/Other Round/CodeTON Round 6/B.cpp",
     "Other/Picture/b4dbf21e3d779b6212e7bf360afd6d41-1700549564131-5.png",
     "Other/Picture/1074429cd9de4424a8994499fd546984.png",
     "Other/Picture/1645a99fd29c49e5a57a8aab1144eab1.png",
@@ -191,14 +194,11 @@
     "Other/Note/CodeForces/CodeTON Round/CodeTON Round 5.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 894.md",
     "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 878.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 874.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 579.md",
     "Other/Picture/3.jpg",
     "Other/Picture/2.jpg",
     "Other/Picture/1.jpg",
     "Other/Note/Others/image.png",
     "Note/Contests/fc6b92eed28345b488a0058c74da0cb2.png",
-    "Note/Contests/ec23825945784c2da32c08c5f08db78c.png",
     "未命名.canvas",
     "未命名 3.canvas",
     "未命名 2.canvas",
