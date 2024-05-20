@@ -32,7 +32,7 @@ i64 roll64(i64 x, i64 y) {
 
 int main() {
 	srand(time(0));
-	for (int i = 1; i <= 10; i++) {
+	for (int i = 1; i <= 5; i++) {
 		freopen((std::to_string(i) + ".in").c_str(), "w", stdout);
 		int n = roll(4, 14), m = roll(1, std::min(90, (n * n - n) / 2));
 		printf("%d %d\n", n, m);

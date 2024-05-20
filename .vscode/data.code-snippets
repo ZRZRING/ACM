@@ -28,5 +28,23 @@
 			"}",
 		],
 		"description": "RMQ Temple"
-	}
+	},
+	"Run": {
+        "scope": "bat",
+        "prefix": "run",
+        "body": [
+            "@echo off",
+            "cd %~dp0",
+            "echo Compiling...",
+            "g++ std.cpp -o std -w -O2",
+            "echo Compiled!",
+            "for /l %%a in (1,1,10) do (",
+            "\techo %%a",
+			"\tg++ data%%a.cpp -o data%%a",
+            "\tdata%%a.exe > %%a.in",
+            "\tstd.exe < %%a.in > %%a.out",
+            ")"
+        ],
+        "description": "run"
+    }
 }

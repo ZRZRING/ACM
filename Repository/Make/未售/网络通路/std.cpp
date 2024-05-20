@@ -1,60 +1,77 @@
 #include <bits/stdc++.h>
 
-#define i64 long long
-#define endl '\n'
-#define PII std::pair<int, int>
-#define init_0(x) memset(x, 0, sizeof(x))
-#define init_inf(x) memset(x, 0x3f, sizeof(x))
-#define count(x) __builtin_popcount(x)
+using i64 = long long;
 
-inline i64 read() {
-	bool sym = 0; i64 res = 0; char ch = getchar();
-	while (!isdigit(ch)) sym |= (ch == '-'), ch = getchar();
-	while (isdigit(ch)) res = (res << 3) + (res << 1) + (ch ^ 48), ch = getchar();
-	return sym ? -res : res;
-}
+#define NO 2
+#define YES 1
+#define endl '\n'
+#define PII std::pair<i64, i64>
+#define ctz(x) __builtin_ctz(x)
+#define count(x) __builtin_popcount(x)
+#define Fast_IOS std::ios::sync_with_stdio(false), std::cin.tie(0)
+#define debug(x) std::cerr << "In Line " << __LINE__ << " the " << #x << " = " << x << '\n';
 
 const i64 mod = 998244353;
 
-void solve() {
-	int n = read(), m = read();
-	std::vector<std::vector<PII> > edge(n + 1);
+template <class T> void MOD(T &x) {x = (x % mod + mod) % mod;}
+template <class T> T lg(T x) {return (T)log10(x);}
+template <class T> T log(T x) {return (T)log2(x);}
+template <class T> T abs(T x) {return x < 0 ? -x : x;}
+template <class T> T mysqrt(T x) {return std::floor(sqrtl(x));}
+
+int solve() {
+	int n, m;
+	std::cin >> n >> m;
+	std::vector<std::vector<i64>> dis(n, std::vector<i64>(n, 1e9));
 	for (int i = 1; i <= m; i++) {
-		int u = read(), v = read(), t = read();
-		edge[u].push_back({v, t});
-		edge[v].push_back({u, t});
+		i64 u, v, t;
+		std::cin >> u >> v >> t;
+		u--;
+		v--;
+		dis[u][v] = std::min(dis[u][v], t);
+		dis[v][u] = std::min(dis[v][u], t);
 	}
-	int cnt = 0;
-	std::vector<bool> vis(n + 1, 0);
-	auto dfs = [&](auto self, int u) -> void {
-		vis[u] = 1; cnt++;
-		for (auto [v, t] : edge[u]) if (!vis[v]) self(self, v);
-	};
-	dfs(dfs, 1);
-	if (cnt != n) {printf("-1"); return;}
-	std::vector<int> f(1 << n, 1e9);
+	std::vector<std::vector<i64>> f(n, std::vector<i64>(1 << n, 1e9));
+	std::vector<std::vector<i64>> g(n, std::vector<i64>(1 << n, 1e9));
 	for (int S = 1; S < 1 << n; S++) {
-		if (count(S) == 1) {
-			f[S] = 1; continue;
-		}
-		for (int T = S; T; T = T - 1 & S) {
-			for (int u = 1; u <= n; u++) {
-				if ((T >> u - 1 & 1) == 0) continue;
-				for (auto [v, t] : edge[u]) {
-					if (((S ^ T) >> v - 1 & 1) == 0) continue;
-					f[S] = std::min(f[S], f[T] + f[S ^ T] + count(T) * count(S ^ T) * t);
+		int c = count(S);
+		if (c == 1) {
+			int u = ctz(S);
+			f[u][S] = 0;
+		} else {
+			for (int u = 0; u < n; u++) {
+				if ((S >> u & 1) == 0) continue;
+				for (int T = S - 1 & S; T; T = T - 1 & S) {
+					if ((T >> u & 1) == 0) continue;
+					f[u][S] = std::min(f[u][S], f[u][T] + g[u][S ^ T]);
 				}
 			}
 		}
+		for (int u = 0; u < n; u++) {
+			if ((S >> u & 1) == 0) continue;
+			for (int v = 0; v < n; v++) {
+				if ((S >> v & 1) == 1) continue;
+				g[v][S] = std::min(g[v][S], f[u][S] + dis[u][v] * (n - c) * c);
+			}
+		}
 	}
-	printf("%d\n", f[(1 << n) - 1]);
+	if (f[0][(1 << n) - 1] == 1e9) {
+		std::cout << -1 << endl;
+		return 0;
+	}
+	std::cout << f[0][(1 << n) - 1] << endl;
+	return 0;
 }
 
 int main() {
-	for (int i = 1; i <= 10; i++) {
-		freopen((std::to_string(i) + ".in").c_str(), "r", stdin);
-		freopen((std::to_string(i) + ".out").c_str(), "w", stdout);
-		solve();
+	// Fast_IOS;
+	int T = 1;
+	// std::cin >> T;
+	while (T--) {
+		int t = solve();
+		if (t == 0) continue;
+		if (t == YES) std::cout << "YES" << endl;
+		if (t == NO) std::cout << "NO" << endl;
 	}
 	return 0;
 }

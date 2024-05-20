@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
+                "file": "TODO LIST.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md"
+                "file": "TODO LIST.md"
               }
             }
           },
@@ -92,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
+                "file": "TODO LIST.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
+                "file": "TODO LIST.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 385.5
+    "width": 335.5
   },
   "right": {
     "id": "2489426362c0010a",
@@ -153,6 +153,7 @@
   },
   "active": "b326c977df786319",
   "lastOpenFiles": [
+    "未命名.md",
     "Codeforces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940/E.exe",
     "Codeforces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940/E.cpp",
     "Other/Picture/Pasted image 20240425201110.png",
@@ -185,7 +186,6 @@
     "Codeforces/Other Round/Pinely Round 2/A.cpp",
     "Codeforces/Other Round/Pinely Round 2",
     "Codeforces/Other Round/CodeTON Round 6/D.cpp",
-    "Codeforces/Other Round/CodeTON Round 6/C.cpp",
     "Other/Picture/b4dbf21e3d779b6212e7bf360afd6d41-1700549564131-5.png",
     "Other/Picture/1074429cd9de4424a8994499fd546984.png",
     "Other/Picture/1645a99fd29c49e5a57a8aab1144eab1.png",

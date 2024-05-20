@@ -16,25 +16,18 @@ const int mod = 1e9 + 7;
 
 int main() {
 	srand(time(0));
-	int n = roll(5, 10);
-	std::cout << n << endl;
-	std::vector<int> id(n);
-	std::vector<std::vector<int>> e(n);
-	std::iota(id.begin(), id.end(), 0);
-	for (int i = 0; i < n; i++) {
-		for (int j = i + 1; j < n; j++) {
-			int x = roll(0, 2);
-			if (!x) {
-				e[id[i]].push_back(id[j]);
-			}
+	int T = 10;
+	std::cout << T << endl;
+	while (T--) {
+		int n = roll(1, 10);
+		std::cout << n << endl;
+		std::vector<int> val(n + 1);
+		for (int i = 1; i <= n; i++) {
+			std::cout << roll(1, 100) << " \n"[i == n];
 		}
-	}
-	for (int i = 0; i < n; i++) {
-		std::cout << e[i].size() << ' ';
-		for (auto x : e[i]) {
-			std::cout << x << ' ';
+		for (int i = 2; i <= n; i++) {
+			std::cout << i << ' ' << roll(1, i - 1) << endl;
 		}
-		std::cout << endl;
 	}
 	return 0;
 }

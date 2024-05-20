@@ -8,8 +8,8 @@ echo Compiled!
 for /l %%a in (1,1,100000) do (
 	echo %%a
 	data.exe > in.txt
-	wa.exe < in.txt > out.txt
-	std.exe < in.txt > ans.txt
-	fc out.txt ans.txt
+	wa.exe < in.txt > wa.txt
+	std.exe < in.txt > std.txt
+	fc wa.txt std.txt
 	if errorlevel 1 (exit)
 )

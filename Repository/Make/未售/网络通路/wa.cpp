@@ -39,6 +39,7 @@ void solve() {
 		size[x] += size[y];
 	}
 	for (int i = 1; i <= n; i++) {
+		fa[i] = find(find, i);
 		if (fa[i] != fa[1]) {
 			printf("-1\n"); return;
 		}
