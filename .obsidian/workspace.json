@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "368e5424965d56a1",
+        "id": "802e35c244425111",
         "type": "tabs",
         "children": [
           {
-            "id": "b326c977df786319",
+            "id": "fd1f3cb59e6c8557",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TODO LIST.md",
+                "file": "基于人工智能的健康管理应用.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +56,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TODO LIST.md"
+                "file": "基于人工智能的健康管理应用.md"
               }
             }
           },
@@ -92,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO LIST.md",
+                "file": "基于人工智能的健康管理应用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TODO LIST.md",
+                "file": "基于人工智能的健康管理应用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,19 +148,25 @@
       "canvas:新建白板": true,
       "daily-notes:打开/创建今天的日记": true,
       "templates:插入模板": true,
-      "command-palette:打开命令面板": true
+      "command-palette:打开命令面板": true,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "obsidian-kanban:创建新看板": false
     }
   },
-  "active": "b326c977df786319",
+  "active": "bf9fd0a534758428",
   "lastOpenFiles": [
-    "未命名.md",
+    "练习日历.md",
+    "未命名看板.md",
+    "未命名",
+    "tmp/题目.jpg",
+    "Repository/Temple/a.md",
+    "Repository/Temple/a.pdf",
+    "TODO LIST.md",
     "Codeforces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940/E.exe",
     "Codeforces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940/E.cpp",
     "Other/Picture/Pasted image 20240425201110.png",
     "Other/Note/CodeForces/Codeforces Round (Div. 1 + Div. 2)/Codeforces Round 940.md",
-    "TODO LIST.md",
     "Other/Note/Topics/动态规划.md",
-    "未命名",
     "Other/Note/Topics/计算几何.md",
     "Other/Note/Topics/数据结构.md",
     "Other/Note/Knowledge/数论计算.md",
@@ -185,20 +191,16 @@
     "Codeforces/Other Round/Pinely Round 2/B.cpp",
     "Codeforces/Other Round/Pinely Round 2/A.cpp",
     "Codeforces/Other Round/Pinely Round 2",
-    "Codeforces/Other Round/CodeTON Round 6/D.cpp",
     "Other/Picture/b4dbf21e3d779b6212e7bf360afd6d41-1700549564131-5.png",
     "Other/Picture/1074429cd9de4424a8994499fd546984.png",
     "Other/Picture/1645a99fd29c49e5a57a8aab1144eab1.png",
     "Other/Picture/17e29fb7d7884e7fa6056e6f096ba176.png",
     "Other/Note/CodeForces/CodeTON Round/CodeTON Round 7.md",
     "Other/Note/CodeForces/CodeTON Round/CodeTON Round 5.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 894.md",
-    "Other/Note/CodeForces/Codeforces Round (Div. 3 + Div. 4)/Codeforces Round 878.md",
     "Other/Picture/3.jpg",
     "Other/Picture/2.jpg",
     "Other/Picture/1.jpg",
     "Other/Note/Others/image.png",
-    "Note/Contests/fc6b92eed28345b488a0058c74da0cb2.png",
     "未命名.canvas",
     "未命名 3.canvas",
     "未命名 2.canvas",

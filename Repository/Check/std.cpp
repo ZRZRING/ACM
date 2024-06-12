@@ -17,47 +17,39 @@ template <class T> T abs(T x) {return x < 0 ? -x : x;}
 template <class T> T mysqrt(T x) {return std::floor(sqrtl(x));}
 
 struct WORK {
-    int N;
+	int N;
 
-    WORK() {}
+	WORK() {}
 
-    void solve() {
-        int n;
-        std::cin >> n;
-        std::vector<int> val(n + 1);
-        for (int i = 1; i <= n; i++) {
-            std::cin >> val[i];
-        }
-        std::vector<std::vector<int>> e(n + 1);
-        for (int i = 1; i < n; i++) {
-            int u, v;
-            std::cin >> u >> v;
-            e[u].push_back(v);
-            e[v].push_back(u);
-        }
-        int ans = 0;
-        auto dfs = [&](auto self, int u, int last) -> int {
-            for (auto v : e[u]) {
-                if (v == last) continue;
-                if (val[v] * 2 < val[u]) return 0;
-                if (!self(self, v, u)) return 0;
-            }
-            return 1;
-        };
-        for (int i = 1; i <= n; i++) {
-            if (dfs(dfs, i, 0)) ans++;
-        }
-        std::cout << ans << endl;
-    }
+	void solve() {
+		int n, m;
+		std::string s;
+		std::cin >> s >> m;
+		n = s.length();
+		std::string ans;
+		int t = m;
+		for (int i = 0; i < n && ans.size() < n - m; i++) {
+			int pos = i;
+			for (int j = i; j <= std::min(n - 1, i + t); j++) {
+				if (s[j] < s[pos]) pos = j;
+			}
+			t -= pos - i;
+			ans.push_back(s[pos]);
+			i = pos;
+		}
+		while (ans.front() == '0') ans.erase(0, 1);
+		if (ans.empty()) std::cout << 0 << endl;
+		else std::cout << ans << endl;
+	}
 };
 
 int main() {
-    Fast_IOS;
-    WORK work;
-    int T = 1;
-    std::cin >> T;
-    while (T--) {
-        work.solve();
-    }
-    return 0;
+	Fast_IOS;
+	WORK work;
+	int T = 1;
+	std::cin >> T;
+	while (T--) {
+		work.solve();
+	}
+	return 0;
 }

@@ -16,18 +16,15 @@ const int mod = 1e9 + 7;
 
 int main() {
 	srand(time(0));
-	int T = 10;
+	int T = 100;
 	std::cout << T << endl;
 	while (T--) {
-		int n = roll(1, 10);
-		std::cout << n << endl;
-		std::vector<int> val(n + 1);
+		int n = roll(1, 100), m = roll(0, n);
 		for (int i = 1; i <= n; i++) {
-			std::cout << roll(1, 100) << " \n"[i == n];
+			std::cout << roll(0, 9);
 		}
-		for (int i = 2; i <= n; i++) {
-			std::cout << i << ' ' << roll(1, i - 1) << endl;
-		}
+		std::cout << ' ';
+		std::cout << m << endl;
 	}
 	return 0;
 }

@@ -8,23 +8,13 @@ struct DELHEAP {
 
 	std::priority_queue<int, std::vector<int>, cmp> q, d;
 
-	int size() {
-		return q.size() - d.size();
-	}
+	int size() { return q.size() - d.size(); }
 
-	bool empty() {
-		return size() == 0;
-	}
+	bool empty() { return size() == 0; }
 
-	void push(int x) {
-		q.push(x);
-		sum += x;
-	}
+	void push(int x) { q.push(x); sum += x; }
 
-	void erase(int x) {
-		d.push(x);
-		sum -= x;
-	}
+	void erase(int x) { d.push(x); sum -= x; }
 
 	int top() {
 		while (!q.empty() && !d.empty() && q.top() == d.top()) {
@@ -34,9 +24,7 @@ struct DELHEAP {
 		return q.top();
 	}
 	
-	void pop() {
-		erase(q.top());
-	}
+	void pop() { erase(q.top()); }
 };
 
 struct SET_MID {
